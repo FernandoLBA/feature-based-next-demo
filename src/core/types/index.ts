@@ -37,3 +37,17 @@ type Task = BaseEntity & {
   projectId: string;
   priority: "low" | "medium" | "high";
 };
+
+// Factory de componentes genéricos
+type TableColumn<T> = {
+  key: keyof T;
+  header: string;
+  render?: (value: T[keyof T], row: T) => React.ReactNode;
+};
+
+type TableProps<T> = {
+  columns: TableColumn<T>[];
+  data: T[];
+  onRowClick?: (row: T) => void;
+  isLoading?: boolean;
+}
