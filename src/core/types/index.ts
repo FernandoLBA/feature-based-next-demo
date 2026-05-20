@@ -1,7 +1,7 @@
 // Branded Types
 type Brand<T, B> = T & { readonly __brand: B };
-type UserId = Brand<string, "UserId">;
-type TaskId = Brand<string, "TaskId">;
+export type UserId = Brand<string, "UserId">;
+export type TaskId = Brand<string, "TaskId">;
 
 // Utility Types Avanzados
 type DeepPartial<T> = T extends object
@@ -29,7 +29,7 @@ type BaseEntity = {
 
 type TaskStatus = "todo" | "in-progress" | "review" | "done";
 
-type Task = BaseEntity & {
+export type Task = BaseEntity & {
   title: string;
   description: string;
   status: TaskStatus;
@@ -45,7 +45,7 @@ type TableColumn<T> = {
   render?: (value: T[keyof T], row: T) => React.ReactNode;
 };
 
-type TableProps<T> = {
+export type TableProps<T> = {
   columns: TableColumn<T>[];
   data: T[];
   onRowClick?: (row: T) => void;
